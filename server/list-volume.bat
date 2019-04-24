@@ -1,0 +1,1 @@
+docker run --rm -i -v=radar-data:/tmp/myvolume busybox ls -l /tmp/myvolume

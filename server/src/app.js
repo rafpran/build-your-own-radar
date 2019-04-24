@@ -12,7 +12,6 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}));
 
-
 getFilePath = function (fileId) {
     const dir = app.get('uploads');
     return path.normalize(path.join(dir, fileId));
@@ -36,7 +35,12 @@ app.post('/radar', upload.single('myFile'), function (req, res, next) {
     const id = uuid();
     const filepath = getFilePath(id);
 
-    var data = Buffer.from(req.body.myFile);
+    var data;
+    if (req.file) {
+        data = req.file.buffer
+    } else {
+        data = Buffer.from(req.body.myFile)
+    }
     if (!data.length) {
         const error = new Error('Empty file')
         error.httpStatusCode = 400

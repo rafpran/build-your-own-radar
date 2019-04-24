@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var http = require('http');
 var argv = require('minimist')(process.argv.slice(2));
 

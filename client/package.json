@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --inline",
-    "build": "webpack --mode production"
+    "start": "webpack-dev-server --mode development --inline --config=./src/webpack.config.js",
+    "build": "webpack --mode production  --config=./src/webpack.config.js"
   },
   "author": "ThoughtWorks",
   "keywords": [
@@ -46,17 +46,5 @@
     "jquery-ui": "^1.12.1",
     "lodash": "^4.17.11",
     "sanitize-html": "^1.20.0"
-  },
-  "peerDependencies": {
-    "mocha": "*"
-  },
-  "standard": {
-    "globals": [
-      "cy"
-    ],
-    "ignore": [
-      "radar-spec.js",
-      "ref-table-spec.js"
-    ]
   }
 }
