@@ -21,7 +21,7 @@ const GoogleSheetInput = function () {
 
             console.log(queryParams)
             if (queryParams.sheetId) {
-                axios.get('http://localhost:3000/radar', {
+                axios.get('/radar', {
                     params: {
                         sheetId: queryParams.sheetId
                     }
@@ -65,7 +65,7 @@ const GoogleSheetInput = function () {
                 function () {
                     var form = new FormData();
                     form.append('myFile', reader.result);
-                    axios.post('http://localhost:3000/radar', form).then(res => {
+                    axios.post('/radar', form).then(res => {
                         window.location.replace(window.location.origin + '/?sheetId='+res.data.id)
                     });
                 }
